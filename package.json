@@ -1,0 +1,19 @@
+{
+  "name": "lambda-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "./build.sh",
+    "deploy": "./deploy.sh | echo $(cat)",
+    "create-func": "./create-func.sh",
+    "create-func-code": "./create-func-code.sh",
+    "func-list": "aws lambda list-functions | echo $(cat)",
+    "func-call-test": "./call-test.sh"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.29.4"
+  }
+}
