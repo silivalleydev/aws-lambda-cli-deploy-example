@@ -1,5 +1,29 @@
 # lambda-api-cli created by steve & silivalleydev
 
+#### 프로젝트 구조 설명
+
+```
+├── api: 람다 API 별 코드 작성하는 디렉토리
+|   ├── sample-api
+|   ├── test-api
+├── build: 람다 API 별 업로드될 zip 파일이 생기는 디렉토리
+|   ├── sample-api.zip
+|   ├── test-api.zip
+└── service: DB Access 및 비즈니스 로직 처리 Service class 파일 작성하는 디렉토리
+|   ├── SampleClass.mjs
+└── util: util로 사용할 js 파일을 작성하는 디렉토리
+    ├── util.mjs
+└── .env: 숨겨져야할 키값들을 세팅하는 파일
+└── .package.json
+```
+
+#### yarn 설치 및 프로젝트 모듈 설치
+
+```
+$ npm i -g yarn
+$ yarn
+```
+
 #### AWS CLI 세팅
 
 ```
@@ -60,6 +84,29 @@ export const handler = async (event) => {
 };
 ```
 
+- service, util은 현재 api 디렉토리 기준으로 불러오기
+
+```js
+import { sayHello, sayWorld } from "./sample.mjs";
+import moment from "moment/moment.js";
+import SampleClass from "./service/SampleClass.mjs";
+import { getNewID } from "./util/util.mjs";
+export const handler = async (event) => {
+  const sample = new SampleClass();
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify(
+      moment().format("YYYY-MM-DD") +
+        sayHello() +
+        sayWorld() +
+        sample.whatIsThis() +
+        getNewID()
+    ),
+  };
+  return response;
+};
+```
+
 #### 빌드 방법
 
 ```
@@ -74,6 +121,14 @@ $ yarn create-func-code 생성할API명
 
 #### 함수 배포 방법
 
+- 전체 api 배포
+
 ```
 $ yarn deploy
+```
+
+- 특정 api 하나만 배포
+
+```
+$ yarn deploy api명
 ```
