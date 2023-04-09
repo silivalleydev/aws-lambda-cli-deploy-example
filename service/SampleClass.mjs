@@ -2,7 +2,7 @@ import moment from "moment";
 
 class SampleClass {
   whatIsThis() {
-    return "This is SimpleClass" + moment;
+    return "This is SimpleClass" + moment();
   }
 }
 
