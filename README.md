@@ -72,7 +72,7 @@ $ yarn build
 
 ```js
 import { sayHello, sayWorld } from "./sample.mjs";
-import moment from "moment/moment.js";
+import moment from "moment";
 export const handler = async (event) => {
   const response = {
     statusCode: 200,
@@ -88,7 +88,7 @@ export const handler = async (event) => {
 
 ```js
 import { sayHello, sayWorld } from "./sample.mjs";
-import moment from "moment/moment.js";
+import moment from "moment";
 import SampleClass from "./service/SampleClass.mjs";
 import { getNewID } from "./util/util.mjs";
 export const handler = async (event) => {
