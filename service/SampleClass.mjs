@@ -1,6 +1,8 @@
+import moment from "moment";
+
 class SampleClass {
   whatIsThis() {
-    return "This is SimpleClass";
+    return "This is SimpleClass" + moment;
   }
 }
 

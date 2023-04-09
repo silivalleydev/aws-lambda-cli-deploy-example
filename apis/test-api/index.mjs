@@ -1,5 +1,6 @@
+import moment from "moment";
 import { sayHello, sayWorld } from "./sample.mjs";
-import moment from "moment/moment.js";
+
 import SampleClass from "./service/SampleClass.mjs";
 import { getNewID } from "./util/util.mjs";
 export const handler = async (event) => {
