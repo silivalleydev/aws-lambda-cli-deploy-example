@@ -4,7 +4,7 @@ export $(cat .env | xargs)
 
 API_NAME=$1
 
-eval "aws lambda create-function --function-name $API_NAME --zip-file fileb://build/$API_NAME.zip --handler index.handler --runtime nodejs18.x --role arn:aws:iam::$IAM_ID:role/lambda-ex"
+eval "aws lambda create-function --function-name $API_NAME --zip-file fileb://build/$API_NAME.zip --handler index.handler --runtime nodejs18.x --role arn:aws:iam::$IAM_ID:role/lambda-ex --no-cli-pager"
 
 # HTTP_METHOD=$2
 

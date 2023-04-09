@@ -11,8 +11,12 @@ do
   echo "$API_NAME"
   eval "cd ./${API_NAME%\/}"
   eval "rm -rf ./node_modules"
+  eval "rm -rf ./service"
+  eval "rm -rf ./util"
   eval "mkdir ./node_modules"
   eval "cp -R ../../node_modules ."
+  eval "cp -R ../../service ."
+  eval "cp -R ../../util ."
   eval "zip -r ../../build/${API_NAME%\/}.zip ./*"
   eval "cd ../"
 done

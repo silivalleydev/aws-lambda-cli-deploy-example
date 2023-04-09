@@ -75,5 +75,5 @@ $ yarn create-func-code 생성할API명
 #### 함수 배포 방법
 
 ```
-yarn deploy
+$ yarn deploy
 ```
