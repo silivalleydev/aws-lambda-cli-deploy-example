@@ -12,7 +12,7 @@ echo "-z "$ONE_API_NAME""
 if [ -z "$ONE_API_NAME" ]; then
     for API_NAME in "${directories[@]}"
     do
-      eval 'result=$(eval "aws lambda update-function-code --function-name ${API_NAME%.zip} --zip-file fileb://${API_NAME%\/}")'
+      eval 'result=$(eval "aws lambda update-function-code --function-name ${API_NAME%.zip} --zip-file fileb://${API_NAME%\/} --cli-binary-format raw-in-base64-out")'
       echo "$result"
       if [ $? -eq 0 ] 
       then

@@ -59,6 +59,19 @@ AWS_REGION=AWS리전
 $ aws iam create-role --role-name lambda-ex --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}'
 ```
 
+#### **루트에 env.mjs 파일 생성후 아래 코드 입력**
+
+- 애플리케이션을 사용하여 이 클러스터에 연결에 있는 주소 내용 복사
+
+```
+export const MONGODB_URI =
+  "mongodb://{AWS Doc db 인스턴스 상세에 애플리케이션을 사용하여 이 클러스터에 연결에 있는 주소 내용 복사}";
+```
+
+#### **rds-combined-ca-bundle.pem 파일 루트에 배치**
+
+- aws doc 인스턴스 상세에 클러스터(으)로 인증하는 데 필요한 Amazon DocumentDB 인증 기관(CA) 인증서 다운로드 커멘트로 다운로드 받고 프로젝트 루트에 파일 배치
+
 #### 모듈 설치 시 주의
 
 - 모듈 설치는 루트에서 진행하고 그후 `yarn build` 진행해준 다음 모듈을 불러올것(아래는 moment js 모듈을 설치하는 예)
