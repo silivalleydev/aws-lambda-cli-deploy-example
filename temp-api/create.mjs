@@ -6,10 +6,13 @@ export const handler = async (event, context) => {
   let response;
 
   const usersService = new UsersService();
-  await usersService.add({
-    id: { S: "sdc" },
+  /**
+   * {
+   *    id: { S: "sdc" },
     name: { S: "steve" },
-  });
+  }
+   */
+  await usersService.add(JSON.parse(event.body));
   try {
     response = { ...RESPONSE_BODY.SUCCESS };
     response.body.data = "SUCCESS";
